@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="e2Life">
 <meta property="og:description" content="indroduction因为java中参数传递涉及到基本数据类型和对象引用类型，比较容易混淆，所以小结一下说说java中的方法参数传递。 参数传递主要有两种方式（当然还有一种call by name，比较老的参数传递方式，已经out了）：  call by value，即按值传递，表示方法接收的是调用者传递的值，形参是实参的一份拷贝。 call by reference，即按引用传递，表示方法接收">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-09T14:31:05.432Z">
+<meta property="og:updated_time" content="2018-10-09T14:39:47.660Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="说说java中的方法参数传递">
 <meta name="twitter:description" content="indroduction因为java中参数传递涉及到基本数据类型和对象引用类型，比较容易混淆，所以小结一下说说java中的方法参数传递。 参数传递主要有两种方式（当然还有一种call by name，比较老的参数传递方式，已经out了）：  call by value，即按值传递，表示方法接收的是调用者传递的值，形参是实参的一份拷贝。 call by reference，即按引用传递，表示方法接收">
@@ -386,6 +386,7 @@
 <p>结果输出：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发现科比的顺位ID被成功修改过来了</span></span><br><span class="line">After changId, kobe<span class="string">'s idNumber is: 1996013</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="example-3：不能改变对象参数的引用关系"><a href="#example-3：不能改变对象参数的引用关系" class="headerlink" title="example 3：不能改变对象参数的引用关系"></a>example 3：不能改变对象参数的引用关系</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 初始化詹姆斯是03一代的状元秀</span></span><br><span class="line">        Student james = <span class="keyword">new</span> Student(<span class="string">"2003001"</span>);</span><br><span class="line">        <span class="comment">// 初始化科比是96一代的状元秀</span></span><br><span class="line">        Student kobe = <span class="keyword">new</span> Student(<span class="string">"1996001"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 然而我们知道，科比是96黄金一代的13顺位，所以尝试对其ID进行修改</span></span><br><span class="line">        <span class="comment">//让kobe指向一个新的Student对象</span></span><br><span class="line">        changeStudent(kobe, <span class="keyword">new</span> Student(<span class="string">"1996013"</span>));</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"After changeStudent, kobe's idNumber is: "</span> + kobe.getIdNumber());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">changeStudent</span><span class="params">(Student student, Student newStudent)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        student = newStudent;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>结果输出：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引用关系并未发生改变，仍然输出之前对象的信息</span></span><br><span class="line">After changeStudent, kobe<span class="string">'s idNumber is: 1996001</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a href="https://book.douban.com/subject/3146174/" target="_blank" rel="noopener">java核心技术.卷一</a></p>
 
       
     </div>
@@ -449,6 +450,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/09/说说java中的接口和抽象类/" rel="prev" title="说说java中的接口和抽象类">
+                说说java中的接口和抽象类 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -527,7 +532,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -610,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#indroduction"><span class="nav-number">1.</span> <span class="nav-text">indroduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conclusion"><span class="nav-number">2.</span> <span class="nav-text">conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-number">3.</span> <span class="nav-text">example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example-1-不能修改基本数据类型的参数"><span class="nav-number">3.1.</span> <span class="nav-text">example 1:不能修改基本数据类型的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-2-可以修改一个对象参数的状态"><span class="nav-number">3.2.</span> <span class="nav-text">example 2:可以修改一个对象参数的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-3：不能改变对象参数的引用关系"><span class="nav-number">3.3.</span> <span class="nav-text">example 3：不能改变对象参数的引用关系</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#indroduction"><span class="nav-number">1.</span> <span class="nav-text">indroduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conclusion"><span class="nav-number">2.</span> <span class="nav-text">conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-number">3.</span> <span class="nav-text">example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example-1-不能修改基本数据类型的参数"><span class="nav-number">3.1.</span> <span class="nav-text">example 1:不能修改基本数据类型的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-2-可以修改一个对象参数的状态"><span class="nav-number">3.2.</span> <span class="nav-text">example 2:可以修改一个对象参数的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-3：不能改变对象参数的引用关系"><span class="nav-number">3.3.</span> <span class="nav-text">example 3：不能改变对象参数的引用关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">4.</span> <span class="nav-text">reference</span></a></li></ol></div>
             
 
           </div>
