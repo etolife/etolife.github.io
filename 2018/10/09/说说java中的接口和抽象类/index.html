@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="在java中，抽象类和interface是面向对象编程的两个比较重要的概念，抽象类和interface都是为了对对象进行更好的抽象。二者有一些相似的地方，但也有很多不同之处，所以总结一下啊java的接口和抽象类。 抽象类抽象类的概念的提出，其实是为了对对象进行一个更高层次的抽象。比如学生和老师都可以继承自Person这么一个类，在Person类里可以定义一些通用属性，比如姓名年龄等，这些都比较好定">
+<meta name="description" content="在java中，抽象类和interface是面向对象编程的两个比较重要的概念，抽象类和interface都是为了对对象进行更好的抽象。二者有一些相似的地方，但也有很多不同之处，所以总结一下java的接口和抽象类。 抽象类抽象类的概念的提出，其实是为了对对象进行一个更高层次的抽象。比如学生和老师都可以继承自Person这么一个类，在Person类里可以定义一些通用属性，比如姓名年龄等，这些都比较好定义">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="说说java中的接口和抽象类">
 <meta property="og:url" content="http://yoursite.com/2018/10/09/说说java中的接口和抽象类/index.html">
 <meta property="og:site_name" content="e2Life">
-<meta property="og:description" content="在java中，抽象类和interface是面向对象编程的两个比较重要的概念，抽象类和interface都是为了对对象进行更好的抽象。二者有一些相似的地方，但也有很多不同之处，所以总结一下啊java的接口和抽象类。 抽象类抽象类的概念的提出，其实是为了对对象进行一个更高层次的抽象。比如学生和老师都可以继承自Person这么一个类，在Person类里可以定义一些通用属性，比如姓名年龄等，这些都比较好定">
+<meta property="og:description" content="在java中，抽象类和interface是面向对象编程的两个比较重要的概念，抽象类和interface都是为了对对象进行更好的抽象。二者有一些相似的地方，但也有很多不同之处，所以总结一下java的接口和抽象类。 抽象类抽象类的概念的提出，其实是为了对对象进行一个更高层次的抽象。比如学生和老师都可以继承自Person这么一个类，在Person类里可以定义一些通用属性，比如姓名年龄等，这些都比较好定义">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-09T15:15:45.128Z">
+<meta property="og:updated_time" content="2018-10-10T14:58:34.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="说说java中的接口和抽象类">
-<meta name="twitter:description" content="在java中，抽象类和interface是面向对象编程的两个比较重要的概念，抽象类和interface都是为了对对象进行更好的抽象。二者有一些相似的地方，但也有很多不同之处，所以总结一下啊java的接口和抽象类。 抽象类抽象类的概念的提出，其实是为了对对象进行一个更高层次的抽象。比如学生和老师都可以继承自Person这么一个类，在Person类里可以定义一些通用属性，比如姓名年龄等，这些都比较好定">
+<meta name="twitter:description" content="在java中，抽象类和interface是面向对象编程的两个比较重要的概念，抽象类和interface都是为了对对象进行更好的抽象。二者有一些相似的地方，但也有很多不同之处，所以总结一下java的接口和抽象类。 抽象类抽象类的概念的提出，其实是为了对对象进行一个更高层次的抽象。比如学生和老师都可以继承自Person这么一个类，在Person类里可以定义一些通用属性，比如姓名年龄等，这些都比较好定义">
 
 
 
@@ -365,7 +365,7 @@
       
 
       
-        <p>在java中，抽象类和interface是面向对象编程的两个比较重要的概念，抽象类和interface都是为了对对象进行更好的抽象。二者有一些相似的地方，但也有很多不同之处，所以总结一下啊java的接口和抽象类。</p>
+        <p>在java中，抽象类和interface是面向对象编程的两个比较重要的概念，抽象类和interface都是为了对对象进行更好的抽象。二者有一些相似的地方，但也有很多不同之处，所以总结一下java的接口和抽象类。</p>
 <h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p>抽象类的概念的提出，其实是为了对对象进行一个更高层次的抽象。比如学生和老师都可以继承自Person这么一个类，在Person类里可以定义一些通用属性，比如姓名年龄等，这些都比较好定义，在Perosn类里还可以顶一个通用方法thisIsMyRole(),如果是学生则输出身份信息是学生，如果是老师，则输出身份信息是老师，那么这个方法在Person类里就不好定义了，因为在Person类还不知道具体是什么角色，应该输出什么信息。</p>
 <p>所以java提出了抽象方法的概念：通过关键字abstract进行修饰，只有方法声明而没有具体实现。基本格式为abstract void fucntionName();。</p>
 <p>抽象方法只是充当着占位的角色，具体实现在子类实现。</p>
