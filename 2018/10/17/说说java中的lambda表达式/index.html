@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="接口与回调callback是一种常见的设计模式，在这种模式中，可以指定在某个特定事件发生后应该采取的动作。比如说，有一个老师发布了一项任务，让一个学生去跑50m，跑完后学生主动告诉老师跑的时间，老师进行成绩登记。在这个过程中，首先老师给学生发布任务，可以理解是老师调用学生，然后学生执行完跑步这个动作后，需要主动通知老师跑的时间，这个时候是学生反过来调用老师，这个就是比较通俗的回调逻辑了。 通过上面">
+<meta name="description" content="lambda表达式是java8推出的一个特性，使用lambda表达式可以很方便地传递代码块，使得代码更加的简洁，本文就主要说说java中的lambda表达式。 lambda表达式的语法lambda表达式就是一个代码块，以及必须传入代码的变量规范。lambda表达式格式如下：1(参数列表)-&amp;gt;&amp;#123;代码块&amp;#125; 语法示例：123456789101112131415example 1">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="说说java中的接口与回调">
-<meta property="og:url" content="http://yoursite.com/2018/10/14/说说java中的接口与回调/index.html">
+<meta property="og:title" content="说说java中的lambda表达式">
+<meta property="og:url" content="http://yoursite.com/2018/10/17/说说java中的lambda表达式/index.html">
 <meta property="og:site_name" content="e2Life">
-<meta property="og:description" content="接口与回调callback是一种常见的设计模式，在这种模式中，可以指定在某个特定事件发生后应该采取的动作。比如说，有一个老师发布了一项任务，让一个学生去跑50m，跑完后学生主动告诉老师跑的时间，老师进行成绩登记。在这个过程中，首先老师给学生发布任务，可以理解是老师调用学生，然后学生执行完跑步这个动作后，需要主动通知老师跑的时间，这个时候是学生反过来调用老师，这个就是比较通俗的回调逻辑了。 通过上面">
+<meta property="og:description" content="lambda表达式是java8推出的一个特性，使用lambda表达式可以很方便地传递代码块，使得代码更加的简洁，本文就主要说说java中的lambda表达式。 lambda表达式的语法lambda表达式就是一个代码块，以及必须传入代码的变量规范。lambda表达式格式如下：1(参数列表)-&amp;gt;&amp;#123;代码块&amp;#125; 语法示例：123456789101112131415example 1">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-14T02:08:36.678Z">
+<meta property="og:updated_time" content="2018-10-17T14:06:02.057Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="说说java中的接口与回调">
-<meta name="twitter:description" content="接口与回调callback是一种常见的设计模式，在这种模式中，可以指定在某个特定事件发生后应该采取的动作。比如说，有一个老师发布了一项任务，让一个学生去跑50m，跑完后学生主动告诉老师跑的时间，老师进行成绩登记。在这个过程中，首先老师给学生发布任务，可以理解是老师调用学生，然后学生执行完跑步这个动作后，需要主动通知老师跑的时间，这个时候是学生反过来调用老师，这个就是比较通俗的回调逻辑了。 通过上面">
+<meta name="twitter:title" content="说说java中的lambda表达式">
+<meta name="twitter:description" content="lambda表达式是java8推出的一个特性，使用lambda表达式可以很方便地传递代码块，使得代码更加的简洁，本文就主要说说java中的lambda表达式。 lambda表达式的语法lambda表达式就是一个代码块，以及必须传入代码的变量规范。lambda表达式格式如下：1(参数列表)-&amp;gt;&amp;#123;代码块&amp;#125; 语法示例：123456789101112131415example 1">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/14/说说java中的接口与回调/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/17/说说java中的lambda表达式/"/>
 
 
 
 
 
-  <title>说说java中的接口与回调 | e2Life</title>
+  <title>说说java中的lambda表达式 | e2Life</title>
   
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/14/说说java中的接口与回调/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/17/说说java中的lambda表达式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr & Mrs">
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">说说java中的接口与回调</h1>
+          <h1 class="post-title" itemprop="name headline">说说java中的lambda表达式</h1>
         
 
         <div class="post-meta">
@@ -294,8 +294,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-14T09:21:13+08:00">
-                2018-10-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-17T21:42:19+08:00">
+                2018-10-17
               </time>
             
 
@@ -370,14 +370,27 @@
       
 
       
-        <h3 id="接口与回调"><a href="#接口与回调" class="headerlink" title="接口与回调"></a>接口与回调</h3><p>callback是一种常见的设计模式，在这种模式中，可以指定在某个特定事件发生后应该采取的动作。比如说，有一个老师发布了一项任务，让一个学生去跑50m，跑完后学生主动告诉老师跑的时间，老师进行成绩登记。在这个过程中，首先老师给学生发布任务，可以理解是老师调用学生，然后学生执行完跑步这个动作后，需要主动通知老师跑的时间，这个时候是学生反过来调用老师，这个就是比较通俗的回调逻辑了。</p>
-<p>通过上面的例子，我们可以很明显的看到，这里有一个循环调用，老师调用学生，学生反调老师，如果只定义一个Teacher类和一个Student类，就会存在循环依赖，如果Teacher和Student分属不同的组件，就会导致组件间的循环依赖，这样会导致编译错误，因为编译器不知道先编译哪个组件。</p>
-<p>那么通过接口就可以很好的解决这个问题了：</p>
-<p>可以让Teacher实现一个接口ScoreInterface，在该接口里定义一个登记分数的方法recordScore(Double timeSpend)，老师在发布任务方法pubulishTask()里调用学生的doRun()方法，让学生执行跑步动作，调用doRun()方法的时候，Teacher把自己的实例对象以ScoreInterface接口对象的形式传给Student对象；</p>
-<p>Student对象执行doRun()方法，执行完后，根据doRun()方法传过来的ScoreInterface接口对象调用recordScore(Double timeSpend)方法，从而实现把跑的时间通知给老师，让老师登记分数这样一个动作。</p>
-<p>这样就避免了循环依赖，Teacher依赖Student和ScoreInterface，Student依赖ScoreInterface，Teacher和Student之间就不存在相互依赖了。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义接口ScoreInterface</span></span><br><span class="line"><span class="keyword">package</span> com.publicInterface;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ScoreInterface</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">recordScore</span><span class="params">(Double timeSpend)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个Teacher类，实现该接口</span></span><br><span class="line"><span class="keyword">package</span> com.teacher;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.Person;</span><br><span class="line"><span class="keyword">import</span> com.publicInterface.ScoreInterface;</span><br><span class="line"><span class="keyword">import</span> com.student.Student;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> <span class="keyword">implements</span> <span class="title">ScoreInterface</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">publishTask</span><span class="params">(Student student, <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Teacher publish the task, run "</span> + length + <span class="string">"ｍ."</span>);</span><br><span class="line">        student.doRun(<span class="keyword">this</span>, length);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">recordScore</span><span class="params">(Double timeSpend)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(timeSpend&lt;<span class="number">7</span>)</span><br><span class="line">            System.out.println(<span class="string">"Well done. Excellent."</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            System.out.println(<span class="string">"Good"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义学生类</span></span><br><span class="line"><span class="keyword">package</span> com.student;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.publicInterface.ScoreInterface;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doRun</span><span class="params">(ScoreInterface scoreInterface, <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (length == <span class="number">50</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Begin to Run."</span>);</span><br><span class="line">            System.out.println(<span class="string">"Run finished, my time spend is 6.8s."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        scoreInterface.recordScore(<span class="number">6.8</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//main函数</span></span><br><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.student.Student;</span><br><span class="line"><span class="keyword">import</span> com.teacher.Teacher;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationTargetException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Teacher teacher = <span class="keyword">new</span> Teacher();</span><br><span class="line">        Student student = <span class="keyword">new</span> Student();</span><br><span class="line">        teacher.publishTask(student, <span class="number">50</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>结果输出：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Teacher publish the task, run <span class="number">50</span>ｍ.</span><br><span class="line">Begin to Run.</span><br><span class="line">Run finished, my time spend is <span class="number">6.8</span>s.</span><br><span class="line">Well done. Excellent.</span><br></pre></td></tr></table></figure></p>
+        <p>lambda表达式是java8推出的一个特性，使用lambda表达式可以很方便地传递代码块，使得代码更加的简洁，本文就主要说说java中的lambda表达式。</p>
+<h3 id="lambda表达式的语法"><a href="#lambda表达式的语法" class="headerlink" title="lambda表达式的语法"></a>lambda表达式的语法</h3><p>lambda表达式就是一个代码块，以及必须传入代码的变量规范。lambda表达式格式如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(参数列表)-&gt;&#123;代码块&#125;</span><br></pre></td></tr></table></figure></p>
+<p>语法示例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">example <span class="number">1</span>:</span><br><span class="line">()-&gt;&#123;System.out.println(<span class="string">"hello"</span>);&#125;</span><br><span class="line"></span><br><span class="line">exmaple <span class="number">2</span>:</span><br><span class="line">(String m, String n)-&gt;&#123;<span class="keyword">return</span> m.length()-n.length();&#125;</span><br><span class="line"><span class="comment">//如果参数能通过上下文确定类型，可以省略参数列表里的参数类型</span></span><br><span class="line">(m,n)-&gt;&#123;<span class="keyword">return</span> m.length()-n.length();&#125;</span><br><span class="line"></span><br><span class="line">example <span class="number">3</span>:</span><br><span class="line"><span class="comment">//如果只有一个参数，小括号可以省略</span></span><br><span class="line">x-&gt;&#123;<span class="keyword">return</span> x*x;&#125;</span><br><span class="line"></span><br><span class="line">example <span class="number">4</span>:</span><br><span class="line"><span class="comment">//如果代码块里只有一条语句，则return和大括号可以省略</span></span><br><span class="line">x-&gt;x*x</span><br></pre></td></tr></table></figure></p>
+<h3 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h3><p>lambda表达式是不能独立执行的，所以可以由指定目标类型的函数式接口对lambda表达式进行调用。<br>对于只有一个抽象方法的接口，需要这种接口的对象时，就可以提供一个lambda表达式，这种接口称为函数式接口(functional interface)。</p>
+<p>lambda表达式可以转换为一个接口，让lambda表达式更有吸引力了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个函数式接口</span></span><br><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Compute</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过lambda表达式实现接口的抽象方法</span></span><br><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Compute compute = (x, y) -&gt; x + y;</span><br><span class="line">        System.out.println(compute.add(<span class="number">1</span>, <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果输出：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>又比如要对一个数组进行排序，调用Arrays.sort()方法，第二个参数是一个Comparator对象实例，Comparator就是只有一个方法的接口，所以可以提供一个lambda表达式作为sort方法的参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        String[] arr =</span><br><span class="line">        &#123; <span class="string">"Champions"</span>, <span class="string">"we"</span>, <span class="string">"yeah"</span>, <span class="string">"are"</span> &#125;;</span><br><span class="line">        Arrays.sort(arr, (m, n) -&gt;</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (m.length() &gt; n.length()) &#123;</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 打印排序后的数组</span></span><br><span class="line">        List&lt;String&gt; names = Arrays.asList(arr);</span><br><span class="line">        names.forEach(name -&gt; System.out.println(name + <span class="string">";"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果输出：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Champions;</span><br><span class="line">yeah;</span><br><span class="line">are;</span><br><span class="line">we;</span><br></pre></td></tr></table></figure></p>
+<h3 id="方法引用-method-reference"><a href="#方法引用-method-reference" class="headerlink" title="方法引用(method reference)"></a>方法引用(method reference)</h3><p>方法引用可以认为是lambda表达式的一个扩展，有时候lambda表达式只是引用了一个已经声明过的方法，为了增加可读性，可以使用方法引用。使用<strong>::</strong>操作符调用引用方法，常用的主要有4类方法引用：</p>
+<blockquote>
+<ol>
+<li>objectInstance::instanceMethod引用实例变量的方法</li>
+<li>Class::staticMethod引用类的静态方法</li>
+<li>Class::instanceMethod特定类型的方法引用</li>
+<li>Class::new引用构造方法</li>
+</ol>
+</blockquote>
+<p>对于第一种情况，比如System.out::println，等价于x-&gt;System.out.println(x)；<br>对于第二种情况，比如Math::pow，等价于(x,y)-&gt;Math.pow(x,y);<br>对于第三种情况，比如String::compareToIngoreCase，等价于(x,y)-&gt;x.compareToIngoreCase(y);<br>对于第四种情况，比如String::new，等价于()-&gt;new String();</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定时器事件：打印事件名称</span></span><br><span class="line"><span class="comment">//lambda表达式如下</span></span><br><span class="line">Timer t = <span class="keyword">new</span> Timer(<span class="number">1000</span>, event-&gt;System.our.println(event));</span><br><span class="line"><span class="comment">//通过方法引用，改写为如下：</span></span><br><span class="line">Timer t = <span class="keyword">new</span> Timer(<span class="number">1000</span>,System.out::println);</span><br></pre></td></tr></table></figure>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://book.douban.com/subject/3146174/" target="_blank" rel="noopener">java核心技术.卷一</a></p>
 
       
@@ -433,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/13/说说java中的clone以及浅拷贝和深拷贝/" rel="next" title="说说java中的clone以及浅拷贝和深拷贝">
-                <i class="fa fa-chevron-left"></i> 说说java中的clone以及浅拷贝和深拷贝
+              <a href="/2018/10/17/说说java中的代理/" rel="next" title="说说java中的代理">
+                <i class="fa fa-chevron-left"></i> 说说java中的代理
               </a>
             
           </div>
@@ -442,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/14/说说java中的内部类/" rel="prev" title="说说java中的内部类">
-                说说java中的内部类 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -605,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口与回调"><span class="nav-number">1.</span> <span class="nav-text">接口与回调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">3.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda表达式的语法"><span class="nav-number">1.</span> <span class="nav-text">lambda表达式的语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式接口"><span class="nav-number">2.</span> <span class="nav-text">函数式接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法引用-method-reference"><span class="nav-number">3.</span> <span class="nav-text">方法引用(method reference)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
