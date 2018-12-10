@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="接着上面两篇文章，今天总结一下java中跟多线程相关的两个接口：Callable接口和Future接口。 我们知道，创建线程有两种方式，实现Thread类和实现Runnable接口。 但是这两种方法，run方法返回值类型均为void，在线程执行完任务后，无法获取执行结果。 可以通过Callable接口和Future接口获取执行完任务后的结果。 ###123456789public interfac">
+<meta name="description" content="接着上面两篇文章，今天总结一下java中跟多线程相关的两个接口：Callable接口和Future接口。 我们知道，创建线程有两种方式，实现Thread类和实现Runnable接口。 但是这两种方法，run方法返回值类型均为void，在线程执行完任务后，无法获取执行结果。 可以通过Callable接口和Future接口获取执行完任务后的结果。 Callable接口123456789public i">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="说说java中的多线程(三)">
 <meta property="og:url" content="http://yoursite.com/2018/12/10/说说java中的多线程-三/index.html">
 <meta property="og:site_name" content="e2Life">
-<meta property="og:description" content="接着上面两篇文章，今天总结一下java中跟多线程相关的两个接口：Callable接口和Future接口。 我们知道，创建线程有两种方式，实现Thread类和实现Runnable接口。 但是这两种方法，run方法返回值类型均为void，在线程执行完任务后，无法获取执行结果。 可以通过Callable接口和Future接口获取执行完任务后的结果。 ###123456789public interfac">
+<meta property="og:description" content="接着上面两篇文章，今天总结一下java中跟多线程相关的两个接口：Callable接口和Future接口。 我们知道，创建线程有两种方式，实现Thread类和实现Runnable接口。 但是这两种方法，run方法返回值类型均为void，在线程执行完任务后，无法获取执行结果。 可以通过Callable接口和Future接口获取执行完任务后的结果。 Callable接口123456789public i">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-10T07:18:06.290Z">
+<meta property="og:updated_time" content="2018-12-10T07:25:18.927Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="说说java中的多线程(三)">
-<meta name="twitter:description" content="接着上面两篇文章，今天总结一下java中跟多线程相关的两个接口：Callable接口和Future接口。 我们知道，创建线程有两种方式，实现Thread类和实现Runnable接口。 但是这两种方法，run方法返回值类型均为void，在线程执行完任务后，无法获取执行结果。 可以通过Callable接口和Future接口获取执行完任务后的结果。 ###123456789public interfac">
+<meta name="twitter:description" content="接着上面两篇文章，今天总结一下java中跟多线程相关的两个接口：Callable接口和Future接口。 我们知道，创建线程有两种方式，实现Thread类和实现Runnable接口。 但是这两种方法，run方法返回值类型均为void，在线程执行完任务后，无法获取执行结果。 可以通过Callable接口和Future接口获取执行完任务后的结果。 Callable接口123456789public i">
 
 
 
@@ -374,7 +374,7 @@
 <p>我们知道，创建线程有两种方式，实现Thread类和实现Runnable接口。</p>
 <p>但是这两种方法，run方法返回值类型均为void，在线程执行完任务后，无法获取执行结果。</p>
 <p>可以通过Callable接口和Future接口获取执行完任务后的结果。</p>
-<p>###<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Callable</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Computes a result, or throws an exception if unable to do so.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> computed result</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception if unable to compute a result</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">V <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Callable接口"><a href="#Callable接口" class="headerlink" title="Callable接口"></a>Callable接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Callable</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Computes a result, or throws an exception if unable to do so.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> computed result</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception if unable to compute a result</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">V <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>可以看到Callable接口里面声明了一个call方法，返回的类型就是传递进来的类型V。</p>
 <p>Callable接口的使用一般配合ExecutorService使用，将一个Callable或者Runnable对象传给ExecutorService的submit方法，返回一个Future的对象。</p>
 <p>ExecutorService的重载的submit方法如下：</p>
@@ -614,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Future接口"><span class="nav-number">1.</span> <span class="nav-text">Future接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FutureTask"><span class="nav-number">2.</span> <span class="nav-text">FutureTask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法"><span class="nav-number">3.</span> <span class="nav-text">使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Callable-FutureTask获取线程执行结果"><span class="nav-number">3.1.</span> <span class="nav-text">Callable+FutureTask获取线程执行结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Callable和Future获取执行结果"><span class="nav-number">3.2.</span> <span class="nav-text">使用Callable和Future获取执行结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行器"><span class="nav-number">4.</span> <span class="nav-text">执行器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Callable接口"><span class="nav-number">1.</span> <span class="nav-text">Callable接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Future接口"><span class="nav-number">2.</span> <span class="nav-text">Future接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FutureTask"><span class="nav-number">3.</span> <span class="nav-text">FutureTask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法"><span class="nav-number">4.</span> <span class="nav-text">使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Callable-FutureTask获取线程执行结果"><span class="nav-number">4.1.</span> <span class="nav-text">Callable+FutureTask获取线程执行结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Callable和Future获取执行结果"><span class="nav-number">4.2.</span> <span class="nav-text">使用Callable和Future获取执行结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行器"><span class="nav-number">5.</span> <span class="nav-text">执行器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
