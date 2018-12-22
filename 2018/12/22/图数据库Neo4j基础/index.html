@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="图数据库,Neo4j," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. 图数据库简介1.1 什么是图数据库 图数据库是非关系型数据库(NoSQL)的一种，使用图理论对数据进行存储、管理和查询。图数据库中的数据以图结构的形式存在，即节点(node)结合和边(relationship)集合的组合，每个节点代表一个实体(entity)，每条边则代表实体之间存在的关联关系，节点和边都可以拥有若干属性(property)，每个属性是一个”键-值”对，泳衣对实体或关联关系进">
+<meta name="keywords" content="图数据库,Neo4j">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图数据库Neo4j基础">
+<meta property="og:url" content="http://yoursite.com/2018/12/22/图数据库Neo4j基础/index.html">
+<meta property="og:site_name" content="e2Life">
+<meta property="og:description" content="1. 图数据库简介1.1 什么是图数据库 图数据库是非关系型数据库(NoSQL)的一种，使用图理论对数据进行存储、管理和查询。图数据库中的数据以图结构的形式存在，即节点(node)结合和边(relationship)集合的组合，每个节点代表一个实体(entity)，每条边则代表实体之间存在的关联关系，节点和边都可以拥有若干属性(property)，每个属性是一个”键-值”对，泳衣对实体或关联关系进">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/50369593-1fb98100-05d3-11e9-8166-d53d1d5bd544.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/50370071-f1d83a80-05da-11e9-873b-2a1a9822090f.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/50370140-6c558a00-05dc-11e9-9a5c-79540f2e9502.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/50370145-7081a780-05dc-11e9-9b5b-e711ab2a375f.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/50371642-f829df00-05f9-11e9-8af0-0691e698064c.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/50371646-f95b0c00-05f9-11e9-8253-d9a4e8e7a3ee.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/50371640-f7914880-05f9-11e9-91d0-7f31999a4c95.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/50371640-f7914880-05f9-11e9-91d0-7f31999a4c95.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/50371643-f8c27580-05f9-11e9-82df-fd1e30c3115f.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/50371641-f829df00-05f9-11e9-9caa-0be6fa0eb3e2.JPG">
+<meta property="og:updated_time" content="2018-12-22T07:03:12.198Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图数据库Neo4j基础">
+<meta name="twitter:description" content="1. 图数据库简介1.1 什么是图数据库 图数据库是非关系型数据库(NoSQL)的一种，使用图理论对数据进行存储、管理和查询。图数据库中的数据以图结构的形式存在，即节点(node)结合和边(relationship)集合的组合，每个节点代表一个实体(entity)，每条边则代表实体之间存在的关联关系，节点和边都可以拥有若干属性(property)，每个属性是一个”键-值”对，泳衣对实体或关联关系进">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/43005689/50369593-1fb98100-05d3-11e9-8166-d53d1d5bd544.JPG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/22/图数据库Neo4j基础/"/>
+
+
+
+
+
+  <title>图数据库Neo4j基础 | e2Life</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/etolife"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">e2Life</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">welcome to e2Life!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/22/图数据库Neo4j基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr & Mrs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oxpxtc8tw.bkt.clouddn.com/final.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="e2Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">图数据库Neo4j基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-22T10:05:35+08:00">
+                2018-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mr/" itemprop="url" rel="index">
+                    <span itemprop="name">Mr</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mr/图数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">图数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-图数据库简介"><a href="#1-图数据库简介" class="headerlink" title="1. 图数据库简介"></a>1. 图数据库简介</h3><h4 id="1-1-什么是图数据库"><a href="#1-1-什么是图数据库" class="headerlink" title="1.1 什么是图数据库"></a>1.1 什么是图数据库</h4><blockquote>
+<p>图数据库是非关系型数据库(NoSQL)的一种，使用图理论对数据进行存储、管理和查询。图数据库中的数据以图结构的形式存在，即节点(node)结合和边(relationship)集合的组合，每个节点代表一个实体(entity)，每条边则代表实体之间存在的关联关系，节点和边都可以拥有若干属性(property)，每个属性是一个”键-值”对，泳衣对实体或关联关系进行具体描述。</p>
+</blockquote>
+<h4 id="1-2-为什么要引入图数据库"><a href="#1-2-为什么要引入图数据库" class="headerlink" title="1.2 为什么要引入图数据库"></a>1.2 为什么要引入图数据库</h4><p>随着互联网的不断发展，传统的关系型数据库已经难以支撑当下的大数据量、高并发的场景。在这种背景下NoSQL(非关系型)数据库应运而生，图数据库正式NoSQL数据库中最典型的的一种。有人说“如果把传统关系型数据库比作火车的话，那么在大数据时代，图数据库就相当于高铁。”图数据库已经成为NoSQL数据库中关注度最高、发展趋势最为明显的新型数据库。</p>
+<h4 id="1-3-图数据库的发展趋势"><a href="#1-3-图数据库的发展趋势" class="headerlink" title="1.3 图数据库的发展趋势"></a>1.3 图数据库的发展趋势</h4><p>在<a href="https://db-engines.com/en/ranking_trend/graph+dbms" target="_blank" rel="noopener">DB-Engines</a>这个网站可以查看图数据库的最新发展趋势图：</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/50369593-1fb98100-05d3-11e9-8166-d53d1d5bd544.JPG" alt=""></p>
+<p>从该趋势图可以看到，Neo4j当前处于top1的位置，Neo4j是由java和scala实现的一种NoSQL数据库，相比于其他的图书库，Neo4j具有开源、跨平台、接口友好、完整支持ACID事务(事务支持是Neo4j与其他很多NoSQL的一个重要区别)等特点。</p>
+<h3 id="2-Neo4j的嵌入式模式和服务器模式"><a href="#2-Neo4j的嵌入式模式和服务器模式" class="headerlink" title="2. Neo4j的嵌入式模式和服务器模式"></a>2. Neo4j的嵌入式模式和服务器模式</h3><p>Neo4j最开始只是以嵌入式模式发布，Neo4j本身也是基于java开发，最开始的目标也是针对java领域，所以在嵌入式模式，java应用程序可以很方便地通过API访问Neo4j数据库，Neo4j就相当于是一个嵌入式的数据库一样。</p>
+<p>后来随着Neo4j的慢慢普及，其应用范围开始涉及到一些非JVM的语言，所以为了支持这些非JVM语言也能使用Neo4j，所以发布了服务器模式。在服务器模式下，Neo4j数据库以自己的进程运行，客户端通过它的专用给予Http和REST API进行数据库调用。</p>
+<p>下图显示了不同模式下对数据库访问的方式：</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/50370071-f1d83a80-05da-11e9-873b-2a1a9822090f.JPG" alt=""></p>
+<p>在嵌入式模式中，任何能够在JVM中运行的客户端代码都能在Neo4j中使用。可以以纯java客户端直接使用嵌入式模式，这里就是直接使用核心Neo4j库，本文后续的示例也是基于嵌入式模式，直接通过核心API调用数据库。</p>
+<p>在服务器模式中，客户端代码通过HTTP协议，尤其是通过明确定义的REST API与Neo4j服务器交互。</p>
+<h3 id="3-Neo4j的安装"><a href="#3-Neo4j的安装" class="headerlink" title="3. Neo4j的安装"></a>3. Neo4j的安装</h3><p>首先<a href="https://neo4j.com/download-center/" target="_blank" rel="noopener">下载</a>对应的数据库版本。</p>
+<p>无需安装，解压就行，进入bin目录，执行批处理文件：<code>neo4j.bat console</code></p>
+<p>初始化完成后，就可以通过<a href="http://localhost:7474/browser/" target="_blank" rel="noopener">http://localhost:7474/browser/</a>访问Neo4j的web页面（第一次登陆需要修改密码）：</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/50370140-6c558a00-05dc-11e9-9a5c-79540f2e9502.JPG" alt="bat"></p>
+<p><img src="https://user-images.githubusercontent.com/43005689/50370145-7081a780-05dc-11e9-9b5b-e711ab2a375f.JPG" alt="web"></p>
+<p>后面通过java API创建的图谱，存储到Neo4j数据库之后，web页面可以对数据库存储的内容进行一个可视化的显示。</p>
+<p>web页面左侧的工具栏是数据库当前存储的一些节点信息以及版本信息，上面是命令行输入框，可以通过cypher语句对数据库进行操作，下面是可视化显示窗口，支持不同类型的可视化显示。</p>
+<h3 id="4-Neo4j应用实践"><a href="#4-Neo4j应用实践" class="headerlink" title="4. Neo4j应用实践"></a>4. Neo4j应用实践</h3><p>主要是通过核心API实现对Neo4j图数据的CRUD。</p>
+<p>比如想创建如下的图谱关系：</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/50371642-f829df00-05f9-11e9-8af0-0691e698064c.JPG" alt=""></p>
+<p>3个User节点各自具有属性，3个Movie节点，也都有不同的属性，节点间的关系如图所示，其中User节点和Movie节点间的HAS_SEEN关系还具有属性：用户对电影的评分打的星级。</p>
+<p><strong>step 1：创建maven工程，并导入Neo4j的依赖</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.neo4j&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;neo4j&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;3.5.0&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">  &lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+<p>version填对应的数据库版本。</p>
+<p><strong>step 2：创建Neo4j数据库</strong><br>通过GraphDatabaseService实例获取Neo4j数据库，传入数据库存放的位置：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String dbPath = <span class="string">"dataBase/graphDb"</span>;</span><br><span class="line">GraphDatabaseService graphDb = <span class="keyword">new</span> GraphDatabaseFactory().newEmbeddedDatabase(<span class="keyword">new</span> File(dbPath));</span><br></pre></td></tr></table></figure></p>
+<p>如果是一个已经存在的数据库，就使用该数据库，如果该位置没有数据库，则创建一个空的数据库。</p>
+<p><strong>step 3：起事务</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (Transaction tx = graphDb.beginTx())</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// commit transaction</span></span><br><span class="line">    tx.success();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这一段代码使用java 7的try-with-source语句，创建一个新的事务并定义一个事务将会使用的代码块。任何与数据库交互和在块内执行的语句将会在同一个事务中运行。</p>
+<p>在try块末尾对success方法的调用表示当一个事务结束时应该有一个提价。当代码结束时事务完成，然后Neo4j会确保这个事务的提交，如果在对数据库操作时出现意外的情况，将不调用success方法，当事务结束时将回滚到原来的状态。Neo4j涉及是否提交或回滚的决策逻辑基于前面是否调用了success或faliure方法，如果想显示的回滚一个事务，可以调用failure方法，则事务将在程序块结束做无条件的回滚。</p>
+<p><strong>step 4：图谱创建及遍历</strong></p>
+<p>首先定义节点标签类型：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> SocialNetworkLabel implements Label</span><br><span class="line">&#123;</span><br><span class="line">  USER,</span><br><span class="line">  MOVIE</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>定义关系类型：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> SocialNetworkRelationshipType implements RelationshipType</span><br><span class="line">&#123;</span><br><span class="line">  FRIEND_OF,</span><br><span class="line">  HAS_SEEN</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>创建节点并设置属性：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Node xiaoming = graphDb.createNode(SocialNetworkLabel.USER);</span><br><span class="line">xiaoming.setProperty(<span class="string">"name"</span>, <span class="string">"xiaoming"</span>);</span><br><span class="line">xiaoming.setProperty(<span class="string">"age"</span>, <span class="number">21</span>);</span><br></pre></td></tr></table></figure></p>
+<p>创建关系并设置关系属性：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Relationship r1 = xiaoming.createRelationshipTo(titanic, SocialNetworkRelationshipType.HAS_SEEN);</span><br><span class="line">r1.setProperty(<span class="string">"stars"</span>, <span class="number">5</span>);</span><br></pre></td></tr></table></figure></p>
+<p>获取节点：<br>获取节点一般有两种方式，通过节点ID<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graphDb.getNodeById(<span class="number">0</span>);</span><br></pre></td></tr></table></figure></p>
+<p>以及通过遍历获取所有节点然后过滤：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Node hitUser = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">for</span>(Node node : graphDb.getAllNodes())</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">if</span>(node.getProperty(<span class="string">"name"</span>).equals(<span class="string">"xiaoming"</span>))</span><br><span class="line">   &#123;</span><br><span class="line">      hitUser = node;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>节点遍历</strong><br>我们想获取xiaoming没看过但是他的朋友们看过并且他的朋友都评价五星的电影，那么怎么对图数据库进行遍历呢？</p>
+<p><strong>第一种遍历： 循环遍历</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;Node&gt; recommendMoviesByFriends = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(Relationship r : hitUser.getRelationships(SocialNetworkRelationshipType.FRIEND_OF))</span><br><span class="line">        &#123;</span><br><span class="line">          Node node = r.getOtherNode(hitUser);</span><br><span class="line">          <span class="keyword">for</span>(Relationship i : node.getRelationships(SocialNetworkRelationshipType.HAS_SEEN))</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="keyword">if</span>(i.getProperty(<span class="string">"stars"</span>).equals(<span class="number">5</span>))</span><br><span class="line">            &#123;</span><br><span class="line">              recommendMoviesByFriends.add(i.getEndNode());</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Set&lt;Node&gt; recommendResult = <span class="keyword">new</span> HashSet &lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(Node movie:recommendMoviesByFriends)</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="keyword">boolean</span> newMovie = <span class="keyword">true</span>;</span><br><span class="line">          <span class="keyword">for</span>(Relationship j : movie.getRelationships(SocialNetworkRelationshipType.HAS_SEEN))</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="keyword">if</span>(j.getStartNode().equals(hitUser))</span><br><span class="line">            &#123;</span><br><span class="line">              newMovie = <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(newMovie)</span><br><span class="line">            &#123;</span><br><span class="line">              recommendResult.add(movie);</span><br><span class="line">              System.out.println(movie.getProperty(<span class="string">"name"</span>));</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>第二种遍历，调Neo4j的API</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义遍历规则</span></span><br><span class="line">        TraversalDescription traversalMoviesFriendsLike = graphDb.traversalDescription()</span><br><span class="line">                .relationships(SocialNetworkRelationshipType.FRIEND_OF)</span><br><span class="line">                .relationships(SocialNetworkRelationshipType.HAS_SEEN, Direction.OUTGOING)</span><br><span class="line">                .uniqueness(Uniqueness.NODE_GLOBAL).evaluator(Evaluators.atDepth(<span class="number">2</span>))</span><br><span class="line">                .evaluator(<span class="keyword">new</span> RecomandEvaluator(hitUser));</span><br><span class="line"></span><br><span class="line">        Traverser traverser = traversalMoviesFriendsLike.traverse(hitUser);</span><br><span class="line">        Iterable&lt;Node&gt; moviesRecomend = traverser.nodes();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Node movie : moviesRecomend) &#123;</span><br><span class="line">            System.out. println(<span class="string">"Recomend Movie: "</span> + movie.getProperty(<span class="string">"name"</span>));</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>先定义一个遍历规则，然后基于该规则对节点进行遍历，RecomandEvaluator为我们自己定义的遍历规则类：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RecomandEvaluator</span> <span class="keyword">implements</span> <span class="title">Evaluator</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Node userNode;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RecomandEvaluator</span><span class="params">(Node userNode)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userNode = userNode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Evaluation <span class="title">evaluate</span><span class="params">(Path path)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Node currentNode = path.endNode();</span><br><span class="line">        <span class="keyword">if</span> (!currentNode.hasLabel(SocialNetworkLabel.MOVIE)) &#123;</span><br><span class="line">            <span class="keyword">return</span> Evaluation.EXCLUDE_AND_CONTINUE;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Relationship r : currentNode.getRelationships(Direction.INCOMING,</span><br><span class="line">                SocialNetworkRelationshipType.HAS_SEEN)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (r.getStartNode().equals(userNode) || !r.getProperty(<span class="string">"stars"</span>).equals(<span class="number">5</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> Evaluation.EXCLUDE_AND_CONTINUE;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Evaluation.INCLUDE_AND_CONTINUE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>第三种遍历：通过Cypher语句遍历</strong><br>Cypher基本语法后面会介绍，通过传入Cypher语句，执行execute方法，也可是实现对Neo4j数据库的访问：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">String cypherQuery = <span class="string">"start xiaoming = node(0) match (xiaoming)-[:FRIEND_OF]-()-[r:HAS_SEEN]-(movies) where not (xiaoming)-[:HAS_SEEN]-(movies) and r.stars=5 return movies"</span>;</span><br><span class="line">        Map&lt;String, Object&gt; parameters = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line">        <span class="keyword">try</span>(Result result = graphDb.execute(cypherQuery, parameters))</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="keyword">while</span>(result.hasNext())</span><br><span class="line">          &#123;</span><br><span class="line">            Map&lt;String, Object&gt; row = result.next();</span><br><span class="line">            <span class="keyword">for</span>(String key:result.columns())</span><br><span class="line">            &#123;</span><br><span class="line">              System.out.printf(<span class="string">"%s = %s%n"</span>, key, row.get(key));</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>三种方法遍历的结果都是一样的：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Recomend Movie: ShawShank</span><br><span class="line">Recomend Movie: ForrestGump</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-Cypher语言基本语法"><a href="#5-Cypher语言基本语法" class="headerlink" title="5. Cypher语言基本语法"></a>5. Cypher语言基本语法</h3><p>Cypher是Neo4j图数据库的查询语言，类似关系数据库中的sql查询语句。</p>
+<h4 id="5-1-Cypher语言的基本语法"><a href="#5-1-Cypher语言的基本语法" class="headerlink" title="5.1 Cypher语言的基本语法"></a>5.1 Cypher语言的基本语法</h4><p>Cypher语法由四个不同的部分组成，每一个部分都有对应的规则：</p>
+<blockquote>
+<p>start：查询图形中的其实节点<br>match：匹配图形模式，可以定位感兴趣数据的字图形<br>where：基于指定条件对结果过滤<br>return：返回结果</p>
+</blockquote>
+<h4 id="5-2-Cypher执行"><a href="#5-2-Cypher执行" class="headerlink" title="5.2 Cypher执行"></a>5.2 Cypher执行</h4><p>可以通过三种方式执行Cypher语句：</p>
+<blockquote>
+<p><strong>一. 使用shell命令执行Cypher查询</strong></p>
+</blockquote>
+<p>执行bin目录cypher-shell.bat文件，输入数据库的用户名密码，执行cypher语句即可：</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/50371646-f95b0c00-05f9-11e9-8253-d9a4e8e7a3ee.JPG" alt="shell"></p>
+<blockquote>
+<p><strong>二. 通过web页面执行Cypher语句</strong></p>
+</blockquote>
+<p>登陆web页面，在命令行输入框执行Cypher语句即可：</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/50371640-f7914880-05f9-11e9-91d0-7f31999a4c95.JPG" alt="cyhper"></p>
+<blockquote>
+<p><strong>三. 通过javaAPI传入Cypher语句进行执行</strong></p>
+</blockquote>
+<p>参照上面节点遍历中的第三种遍历方式。</p>
+<h4 id="5-3-Cyhper语句使用示例"><a href="#5-3-Cyhper语句使用示例" class="headerlink" title="5.3 Cyhper语句使用示例"></a>5.3 Cyhper语句使用示例</h4><p>结合Cypher语句的基本规则，以上面的查询遍历举例，查询xiaoming的朋友推荐的五星电影，并且是xiaoming没有看过的电影。</p>
+<p><strong>step 1:start语句查询起始节点</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start xiaoming = node(<span class="number">0</span>) <span class="keyword">return</span> xiaoming</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/43005689/50371640-f7914880-05f9-11e9-91d0-7f31999a4c95.JPG" alt="xiaoming"></p>
+<p><strong>step 2:match语句进行模式匹配</strong></p>
+<p>match语句其实也比较简单，可以看成通过()-[]这几个符号，将想要匹配的模式图表示出来，比如想match到xiaoming的所有朋友，<code>match (xiaoming)-[:FRIEND_OF]-()</code>，即表示匹配跟xiaoming这个节点具有FRIEND_OF关系的所有节点。</p>
+<p>下面的语句，匹配xiaoming的朋友看过的电影：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start xiaoming = node(<span class="number">0</span>) match (xiaoming)-[:FRIEND_OF]-()-[r:HAS_SEEN]-(movies) <span class="keyword">return</span> movies</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://user-images.githubusercontent.com/43005689/50371643-f8c27580-05f9-11e9-82df-fd1e30c3115f.JPG" alt="movies"></p>
+<p><strong>step 3:where语句进行条件过滤</strong></p>
+<p>通过where语句对匹配的结果进行条件过滤，下面的语句，过滤xiaoming没有看过的，并且他的朋友五星推荐的电影：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start xiaoming = node(<span class="number">0</span>) match (xiaoming)-[:FRIEND_OF]-()-[r:HAS_SEEN]-(movies) <span class="function">where <span class="title">not</span> <span class="params">(xiaoming)</span>-[:HAS_SEEN]-<span class="params">(movies)</span> and r.stars</span>=<span class="number">5</span> <span class="keyword">return</span> movies</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/43005689/50371641-f829df00-05f9-11e9-9caa-0be6fa0eb3e2.JPG" alt="where"></p>
+<p>最终查询的结果，与通过java api查询的结果是一致的。</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://book.douban.com/subject/26974299/" target="_blank" rel="noopener">Neo4j实战</a></p>
+<p><a href="https://book.douban.com/subject/26546658/" target="_blank" rel="noopener">Learning Neo4j</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/图数据库/" <i class="fa fa-tag"></i> 图数据库</a>
+          
+            <a href="/tags/Neo4j/" <i class="fa fa-tag"></i> Neo4j</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/11/90后其实挺让人心疼的/" rel="next" title="90后其实挺让人心疼的">
+                <i class="fa fa-chevron-left"></i> 90后其实挺让人心疼的
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1311145661&auto=0&height=66"></iframe>
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://oxpxtc8tw.bkt.clouddn.com/final.jpg"
+                alt="Mr & Mrs" />
+            
+              <p class="site-author-name" itemprop="name">Mr & Mrs</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/e2life" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:e2life@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="/wechat.jpg" target="_blank" title="Wechat">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Wechat</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-图数据库简介"><span class="nav-number">1.</span> <span class="nav-text">1. 图数据库简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-什么是图数据库"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 什么是图数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-为什么要引入图数据库"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 为什么要引入图数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-图数据库的发展趋势"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 图数据库的发展趋势</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Neo4j的嵌入式模式和服务器模式"><span class="nav-number">2.</span> <span class="nav-text">2. Neo4j的嵌入式模式和服务器模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Neo4j的安装"><span class="nav-number">3.</span> <span class="nav-text">3. Neo4j的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Neo4j应用实践"><span class="nav-number">4.</span> <span class="nav-text">4. Neo4j应用实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Cypher语言基本语法"><span class="nav-number">5.</span> <span class="nav-text">5. Cypher语言基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-Cypher语言的基本语法"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 Cypher语言的基本语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-Cypher执行"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 Cypher执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-Cyhper语句使用示例"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 Cyhper语句使用示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr & Mrs</span>
+
+  
+</div>
+
+
+
+  <div class="powered-by"> <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv"> Visits:<span id="busuanzi_value_site_pv"></span> </span> </div>
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

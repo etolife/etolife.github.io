@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Java," />
+  <meta name="keywords" content="随笔," />
 
 
 
@@ -79,18 +79,24 @@
 
 
 
-<meta name="description" content="断言也是java中的一种异常处理手段，主要用于开发和测试阶段对程序的调试。相比于抛出异常和捕获异常，断言处理机制允许在测试期间在代码中插入一些断言检查语句，当代码发布的时候通过使能和去使能断言开关可以灵活的控制是否执行断言检查，这样不会因为有大量的异常判断而导致程序性能降低。 一. 断言的基本语法12assert 条件assert 条件 : 表达式 如果条件是false，则抛出AssertionE">
-<meta name="keywords" content="Java">
+<meta name="description" content="今天中午刷知乎，知乎热榜排第二（写这篇文章是晚上，已经窜到了热榜第一），如何看待年仅 25 岁的大疆 DJI 员工或因过劳而猝死家中？公司是否应当承担责任？ 心头一怔，很难受，一个鲜活的生命又这么走了，真让人惋惜。 这种惋惜还夹杂着同为IT大厂程序员心中的那份感同身受和恐惧，总觉得这种事情就像上帝掷骰子…… 看了大疆贴出来的讣告，很冰冷，又往下翻了几条热门评论，哈工大高材生，研二就已经发了好几篇S">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="说说java中的断言">
-<meta property="og:url" content="http://yoursite.com/2018/10/26/说说java中的断言/index.html">
+<meta property="og:title" content="90后其实挺让人心疼的">
+<meta property="og:url" content="http://yoursite.com/2018/12/11/90后其实挺让人心疼的/index.html">
 <meta property="og:site_name" content="e2Life">
-<meta property="og:description" content="断言也是java中的一种异常处理手段，主要用于开发和测试阶段对程序的调试。相比于抛出异常和捕获异常，断言处理机制允许在测试期间在代码中插入一些断言检查语句，当代码发布的时候通过使能和去使能断言开关可以灵活的控制是否执行断言检查，这样不会因为有大量的异常判断而导致程序性能降低。 一. 断言的基本语法12assert 条件assert 条件 : 表达式 如果条件是false，则抛出AssertionE">
+<meta property="og:description" content="今天中午刷知乎，知乎热榜排第二（写这篇文章是晚上，已经窜到了热榜第一），如何看待年仅 25 岁的大疆 DJI 员工或因过劳而猝死家中？公司是否应当承担责任？ 心头一怔，很难受，一个鲜活的生命又这么走了，真让人惋惜。 这种惋惜还夹杂着同为IT大厂程序员心中的那份感同身受和恐惧，总觉得这种事情就像上帝掷骰子…… 看了大疆贴出来的讣告，很冰冷，又往下翻了几条热门评论，哈工大高材生，研二就已经发了好几篇S">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-26T14:47:10.334Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/49977540-b22da500-ff81-11e8-98fb-f7b475f59844.jpg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/49977537-b0fc7800-ff81-11e8-8b6e-7b8bee488026.jpg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/49977538-b1950e80-ff81-11e8-90be-e5dde6bed0c5.jpg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/49977539-b1950e80-ff81-11e8-8b23-938560e3bcef.jpg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/49979062-3d119e00-ff88-11e8-9762-605331e17679.JPG">
+<meta property="og:updated_time" content="2018-12-14T02:19:12.478Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="说说java中的断言">
-<meta name="twitter:description" content="断言也是java中的一种异常处理手段，主要用于开发和测试阶段对程序的调试。相比于抛出异常和捕获异常，断言处理机制允许在测试期间在代码中插入一些断言检查语句，当代码发布的时候通过使能和去使能断言开关可以灵活的控制是否执行断言检查，这样不会因为有大量的异常判断而导致程序性能降低。 一. 断言的基本语法12assert 条件assert 条件 : 表达式 如果条件是false，则抛出AssertionE">
+<meta name="twitter:title" content="90后其实挺让人心疼的">
+<meta name="twitter:description" content="今天中午刷知乎，知乎热榜排第二（写这篇文章是晚上，已经窜到了热榜第一），如何看待年仅 25 岁的大疆 DJI 员工或因过劳而猝死家中？公司是否应当承担责任？ 心头一怔，很难受，一个鲜活的生命又这么走了，真让人惋惜。 这种惋惜还夹杂着同为IT大厂程序员心中的那份感同身受和恐惧，总觉得这种事情就像上帝掷骰子…… 看了大疆贴出来的讣告，很冰冷，又往下翻了几条热门评论，哈工大高材生，研二就已经发了好几篇S">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/43005689/49977540-b22da500-ff81-11e8-98fb-f7b475f59844.jpg">
 
 
 
@@ -120,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/26/说说java中的断言/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/11/90后其实挺让人心疼的/"/>
 
 
 
 
 
-  <title>说说java中的断言 | e2Life</title>
+  <title>90后其实挺让人心疼的 | e2Life</title>
   
 
 
@@ -265,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/26/说说java中的断言/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/90后其实挺让人心疼的/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr & Mrs">
@@ -282,7 +288,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">说说java中的断言</h1>
+          <h1 class="post-title" itemprop="name headline">90后其实挺让人心疼的</h1>
         
 
         <div class="post-meta">
@@ -294,8 +300,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-26T22:35:06+08:00">
-                2018-10-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-11T19:32:03+08:00">
+                2018-12-11
               </time>
             
 
@@ -328,8 +334,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mr/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Mr/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
                   </a>
                 </span>
 
@@ -370,21 +376,33 @@
       
 
       
-        <p>断言也是java中的一种异常处理手段，主要用于开发和测试阶段对程序的调试。相比于抛出异常和捕获异常，断言处理机制允许在测试期间在代码中插入一些断言检查语句，当代码发布的时候通过使能和去使能断言开关可以灵活的控制是否执行断言检查，这样不会因为有大量的异常判断而导致程序性能降低。</p>
-<h3 id="一-断言的基本语法"><a href="#一-断言的基本语法" class="headerlink" title="一. 断言的基本语法"></a>一. 断言的基本语法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assert</span> 条件</span><br><span class="line"><span class="keyword">assert</span> 条件 : 表达式</span><br></pre></td></tr></table></figure>
-<p>如果条件是false，则抛出AssertionError异常，在第二种形式中，表达式将被传入AssertionError构造器，并转换成一个消息字符串，对异常进行一个详细描述。</p>
-<p>代码示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> number = input.nextInt();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 断言判断输入的参数是否为正整数</span></span><br><span class="line">        <span class="keyword">assert</span> number &gt; <span class="number">0</span> : <span class="string">"input number is not positive!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>编辑器开启断言编译</strong><br>编辑器默认一般都是不开启断言的，所以我们要手动开启断言，以idea为例：<br>Run-&gt;Edit Configurations-&gt;在Configuration的VM optons里输入-ea(-enableAssertions的缩写)即可。</p>
-<p>输入-1，结果输出：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread <span class="string">"main"</span> java.lang.AssertionError: input number is not positive!</span><br><span class="line">	at com.Main.main(Main.java:<span class="number">16</span>)</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<h3 id="二-断言使用场景"><a href="#二-断言使用场景" class="headerlink" title="二. 断言使用场景"></a>二. 断言使用场景</h3><ol>
-<li><p>在私有方法中使用assert作为输入参数的校验<br>公有方法一般不使用assert进行参数教研，公有方法调用是开放的，入参不可控，调用方获得AssertionError错误信息，可能导致程序终止。</p>
-</li>
-<li><p>在流程控制中不可能达到的地方使用assert<br>assert此时表示的意义是：程序执行到这里就是错误的。</p>
-</li>
-</ol>
-<h3 id="三-参考文献"><a href="#三-参考文献" class="headerlink" title="三. 参考文献"></a>三. 参考文献</h3><p><a href="https://book.douban.com/subject/3146174/" target="_blank" rel="noopener">java核心技术.卷一</a></p>
+        <p>今天中午刷知乎，知乎热榜排第二（写这篇文章是晚上，已经窜到了热榜第一），<a href="https://www.zhihu.com/question/305280080" target="_blank" rel="noopener">如何看待年仅 25 岁的大疆 DJI 员工或因过劳而猝死家中？公司是否应当承担责任？</a></p>
+<p>心头一怔，很难受，一个鲜活的生命又这么走了，真让人惋惜。</p>
+<p>这种惋惜还夹杂着同为IT大厂程序员心中的那份感同身受和恐惧，总觉得这种事情就像上帝掷骰子……</p>
+<p>看了大疆贴出来的讣告，很冰冷，又往下翻了几条热门评论，哈工大高材生，研二就已经发了好几篇SCI，申了好几个专利，在学校的时候也是一个体育爱好者，逮着空就喜欢打篮球，虽然身高一米七多，但是不惧对抗，往篮下凿的好手，身体素质应该是不错的，但是从2018年7月份毕业到现在才5个多月，一切都戛然而止。</p>
+<p>25岁，一切都戛然而止！戛然而止！</p>
+<p>这几年，IT行业由于过度加班导致或引起的猝死事件真的不在少数，还记得几个月前<a href="https://www.iqiyi.com/v_19rqzpgrm4.html" target="_blank" rel="noopener">深圳一个24岁的程序员疑因加班过度，上班期间突然晕倒，不省人事</a>，视频里的他的同事冷静地进行急救、及时地呼叫120，专业得让人心疼，经历得多了才会如此的从容吧。</p>
+<p>我也是一名大厂的90后程序员，这件事情发生了之后，我和同事们也都会讨论这个事情，扼腕叹息、义愤填膺地吐槽后，得出的结论是：在我们这个年纪，在我们这个人生阶段，在我们面对的各种经济压力下，我们真的是想拼了命的赚钱、玩了命地赚钱，但是又真的很害怕真的把命给拼没了。</p>
+<p>大家普遍觉得程序员的工资高，其实只有我们自己知道那背后的付出。有一句调侃的话“请一个程序员干两个人的活，给他开1.5个人的工资”。虽然是调侃但是也多少有点道理的，1.5个人的工资背后是承担了两个人的工作量，所以晚上十一二点的IT大楼，经常都是灯火通明。前两天我老婆给我看某音上一个程序员晒出公司的诱人的夜宵后，下面一众的评论，”好羡慕啊”、“好想去上班啊”……我淡定的说“让他们体验一天加班到凌晨，估计第二天都辞职了”。</p>
+<p>那你们程序员怎么不辞职，你们这么年轻，辞职了可劲儿浪啊？</p>
+<p>问得好啊！</p>
+<p>我们哪敢啊，别说辞职了，公司说再加点钱每天多加两个小时班，我估计很多人都愿意。</p>
+<p>说白了因为没钱啊，贴两张我跟我媳妇儿某一天的聊天记录（真人真事儿，贴出来晚上不会回去跪键盘吧&lt;:）<br><img src="https://user-images.githubusercontent.com/43005689/49977540-b22da500-ff81-11e8-98fb-f7b475f59844.jpg" alt=""></p>
+<p><img src="https://user-images.githubusercontent.com/43005689/49977537-b0fc7800-ff81-11e8-8b6e-7b8bee488026.jpg" alt=""></p>
+<p><img src="https://user-images.githubusercontent.com/43005689/49977538-b1950e80-ff81-11e8-90be-e5dde6bed0c5.jpg" alt=""></p>
+<p><img src="https://user-images.githubusercontent.com/43005689/49977539-b1950e80-ff81-11e8-8b23-938560e3bcef.jpg" alt=""></p>
+<p>起因是我们现在买的房子离我老婆上班的地方有点远，她很不方便，所以产生了什么时候才能换房子的困惑，以及一系列由于缺钱而滋生的焦虑……</p>
+<p>我和我身边很大一部分同学正在负债的道路上走得越来越远，硕士毕业，也就工作两三年，其实还没有攒到很多的财富，但是很多事情却需要我们去兑现财富，大城市的一套小房子、一部代步的车子、结婚的一套标准化流程、再生个小崽子而且还必须双方老人健康……就这样也足够掏光自己加上双方父母的6个口袋。</p>
+<p>我和我老婆在双方父母的帮衬下，解决了房子(很小)和车子，现在每个月供着一万多的贷款加上好几张信用卡，每个月基本没什么余钱，可是还要面对着一大波即将来袭的开销（婚礼还没办、后面还要生娃……娃大了还要换个大点的房子）</p>
+<p><a href="http://wemedia.ifeng.com/91125408/wemedia.shtml" target="_blank" rel="noopener">881亿！刚刚，央妈突然公布一个数据，比抖音更狠，它正在摧毁年轻人</a></p>
+<p>这个数据很恐怖的，信用卡881亿逾期！</p>
+<p>信用卡我也贡献了一份子，虽然没有逾期，但我知道每个月还款的压力，其实有的时候真的不是我们过度消费，有的钱必须得花，但是手头真的没钱的时候，加上马爸爸们又那么慷慨的一次又一次地给我们的借呗提额的时候，我的第一次借呗是之前问一个要好的同学借了两万块钱凑得房子首付，后来同学自己要买房子，我得赶紧还他，但手里真的没钱，所以问马爸爸周转了一下，所以我现在手机上设置了一个提醒每个月固定给马爸爸打钱……</p>
+<p><a href="https://mp.weixin.qq.com/s/J32RifHEDIUwC3Ig67Y6GA" target="_blank" rel="noopener">超六成 90 后失眠，当我们在失眠时，我们在想什么？ </a></p>
+<p>今年3月，中国睡眠研究会发布了《中国睡眠诊疗现状调查报告》，报告显示，失眠重度患者超六成是90后。</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/49979062-3d119e00-ff88-11e8-9762-605331e17679.JPG" alt=""></p>
+<p>我反正一天上完十一二个小时的班，回到家基本是躺哪儿都能睡着，很少失眠</p>
+<p>只是，</p>
+<p>总有那么些个晚上，会愁，愁得睡不着，第二天还是得精神抖擞的去接受阳光的洗礼！</p>
 
       
     </div>
@@ -402,7 +420,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" <i class="fa fa-tag"></i> Java</a>
+            <a href="/tags/随笔/" <i class="fa fa-tag"></i> 随笔</a>
           
         </div>
       
@@ -415,8 +433,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/26/说说java中的异常处理机制/" rel="next" title="说说java中的异常处理机制">
-                <i class="fa fa-chevron-left"></i> 说说java中的异常处理机制
+              <a href="/2018/12/10/说说java中的多线程-三/" rel="next" title="说说java中的多线程(三)">
+                <i class="fa fa-chevron-left"></i> 说说java中的多线程(三)
               </a>
             
           </div>
@@ -425,8 +443,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/18/说说java中的泛型-一/" rel="prev" title="说说java中的泛型(一)">
-                说说java中的泛型(一) <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/22/图数据库Neo4j基础/" rel="prev" title="图数据库Neo4j基础">
+                图数据库Neo4j基础 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -479,19 +497,10 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
       <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1311145661&auto=0&height=66"></iframe>
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -577,22 +586,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-断言的基本语法"><span class="nav-number">1.</span> <span class="nav-text">一. 断言的基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-断言使用场景"><span class="nav-number">2.</span> <span class="nav-text">二. 断言使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-参考文献"><span class="nav-number">3.</span> <span class="nav-text">三. 参考文献</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
