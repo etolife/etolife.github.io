@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/43005689/50371640-f7914880-05f9-11e9-91d0-7f31999a4c95.JPG">
 <meta property="og:image" content="https://user-images.githubusercontent.com/43005689/50371643-f8c27580-05f9-11e9-82df-fd1e30c3115f.JPG">
 <meta property="og:image" content="https://user-images.githubusercontent.com/43005689/50371641-f829df00-05f9-11e9-9caa-0be6fa0eb3e2.JPG">
-<meta property="og:updated_time" content="2018-12-22T07:03:12.198Z">
+<meta property="og:updated_time" content="2018-12-22T07:37:42.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图数据库Neo4j基础">
 <meta name="twitter:description" content="1. 图数据库简介1.1 什么是图数据库 图数据库是非关系型数据库(NoSQL)的一种，使用图理论对数据进行存储、管理和查询。图数据库中的数据以图结构的形式存在，即节点(node)结合和边(relationship)集合的组合，每个节点代表一个实体(entity)，每条边则代表实体之间存在的关联关系，节点和边都可以拥有若干属性(property)，每个属性是一个”键-值”对，泳衣对实体或关联关系进">
@@ -460,6 +460,9 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start xiaoming = node(<span class="number">0</span>) match (xiaoming)-[:FRIEND_OF]-()-[r:HAS_SEEN]-(movies) <span class="function">where <span class="title">not</span> <span class="params">(xiaoming)</span>-[:HAS_SEEN]-<span class="params">(movies)</span> and r.stars</span>=<span class="number">5</span> <span class="keyword">return</span> movies</span><br></pre></td></tr></table></figure>
 <p><img src="https://user-images.githubusercontent.com/43005689/50371641-f829df00-05f9-11e9-9caa-0be6fa0eb3e2.JPG" alt="where"></p>
 <p>最终查询的结果，与通过java api查询的结果是一致的。</p>
+<blockquote>
+<p><strong><em>完整代码，参考<a href="https://github.com/etolife/neo4j-socialNetwork" target="_blank" rel="noopener">GitHub</a></em></strong></p>
+</blockquote>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://book.douban.com/subject/26974299/" target="_blank" rel="noopener">Neo4j实战</a></p>
 <p><a href="https://book.douban.com/subject/26546658/" target="_blank" rel="noopener">Learning Neo4j</a></p>
 
