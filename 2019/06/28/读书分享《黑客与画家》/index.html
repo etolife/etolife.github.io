@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="读书分享," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最近在微信读书上把《把黑客与画家》看完了，感觉还挺不错的，比较适合地铁上或者睡前翻一翻，在项目组内也做了一次读书分享，下面把整理的读书笔记贴在这里。 ##简介这本书是美国的有着硅谷创业之父之称的保罗格雷厄姆写的，中文版是由阮一峰翻译的，在豆瓣上也获得了8.8分的一个比较高的分数。 内容简介  整本书是o reilly从保罗格雷厄姆的博客集中整理收录的，主要介绍黑客的爱好和动机，讨论黑客成长、对世界">
+<meta name="keywords" content="读书分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="好、读书分享《黑客与画家》">
+<meta property="og:url" content="http://yoursite.com/2019/06/28/读书分享《黑客与画家》/index.html">
+<meta property="og:site_name" content="e2Life">
+<meta property="og:description" content="最近在微信读书上把《把黑客与画家》看完了，感觉还挺不错的，比较适合地铁上或者睡前翻一翻，在项目组内也做了一次读书分享，下面把整理的读书笔记贴在这里。 ##简介这本书是美国的有着硅谷创业之父之称的保罗格雷厄姆写的，中文版是由阮一峰翻译的，在豆瓣上也获得了8.8分的一个比较高的分数。 内容简介  整本书是o reilly从保罗格雷厄姆的博客集中整理收录的，主要介绍黑客的爱好和动机，讨论黑客成长、对世界">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349729-bb99ce80-99f4-11e9-93f0-86979d5dd7a7.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349741-c2284600-99f4-11e9-9838-a7a68f6fa3da.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349748-c5bbcd00-99f4-11e9-8565-07cb8fa1f4bb.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349752-c7859080-99f4-11e9-98fc-ab66d906abe9.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349768-ceac9e80-99f4-11e9-852a-17f8933d3c52.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349774-d2d8bc00-99f4-11e9-9940-7f8148e205c2.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349781-d66c4300-99f4-11e9-8585-f1c3c46c6535.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349789-d9673380-99f4-11e9-9382-044443b90b29.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349805-dff5ab00-99f4-11e9-9d28-d8cf7d97daae.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349819-e6842280-99f4-11e9-9827-13c1908fa84a.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349836-ee43c700-99f4-11e9-9a5d-f98b6a02d6cd.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349850-f439a800-99f4-11e9-81ff-b6743a56d1ae.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349861-f8fe5c00-99f4-11e9-8d73-5cc37228d97b.JPG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/43005689/60349876-fe5ba680-99f4-11e9-8344-a5e6d2145e8b.JPG">
+<meta property="og:updated_time" content="2019-07-07T01:59:10.283Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="好、读书分享《黑客与画家》">
+<meta name="twitter:description" content="最近在微信读书上把《把黑客与画家》看完了，感觉还挺不错的，比较适合地铁上或者睡前翻一翻，在项目组内也做了一次读书分享，下面把整理的读书笔记贴在这里。 ##简介这本书是美国的有着硅谷创业之父之称的保罗格雷厄姆写的，中文版是由阮一峰翻译的，在豆瓣上也获得了8.8分的一个比较高的分数。 内容简介  整本书是o reilly从保罗格雷厄姆的博客集中整理收录的，主要介绍黑客的爱好和动机，讨论黑客成长、对世界">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/43005689/60349729-bb99ce80-99f4-11e9-93f0-86979d5dd7a7.JPG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/28/读书分享《黑客与画家》/"/>
+
+
+
+
+
+  <title>好、读书分享《黑客与画家》 | e2Life</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/etolife"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">e2Life</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">welcome to e2Life's page!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/28/读书分享《黑客与画家》/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="e2Life">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/43005689/60348981-39f57100-99f3-11e9-9922-e84778473f05.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="e2Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">好、读书分享《黑客与画家》</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-28T22:26:41+08:00">
+                2019-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mr/" itemprop="url" rel="index">
+                    <span itemprop="name">Mr</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mr/读书分享/" itemprop="url" rel="index">
+                    <span itemprop="name">读书分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在微信读书上把《把黑客与画家》看完了，感觉还挺不错的，比较适合地铁上或者睡前翻一翻，在项目组内也做了一次读书分享，下面把整理的读书笔记贴在这里。</p>
+<p>##简介<br>这本书是美国的有着硅谷创业之父之称的保罗格雷厄姆写的，中文版是由阮一峰翻译的，在豆瓣上也获得了8.8分的一个比较高的分数。<br><img src="https://user-images.githubusercontent.com/43005689/60349729-bb99ce80-99f4-11e9-93f0-86979d5dd7a7.JPG" alt=""></p>
+<p><strong>内容简介</strong></p>
+<blockquote>
+<p>整本书是o reilly从保罗格雷厄姆的博客集中整理收录的，主要介绍黑客的爱好和动机，讨论黑客成长、对世界的贡献以及编程语言和黑客工作方法等所有对计算机时代感兴趣的人的一些话题。有助于读者更好的了解编程的本质和互联网行业的规则，同时养成独立思考的习惯</p>
+</blockquote>
+<h2 id="其人其事"><a href="#其人其事" class="headerlink" title="其人其事"></a>其人其事</h2><p>作者保罗格雷厄姆的经历也蛮有趣的，通过一些关键的timeline过一下作者的一个经历吧：<br><img src="https://user-images.githubusercontent.com/43005689/60349741-c2284600-99f4-11e9-9838-a7a68f6fa3da.JPG" alt=""></p>
+<p>1964年，保罗格雷厄姆出生在美国匹兹堡的一个中产家庭，父亲是以为物理学家，母亲是一位家庭主妇，青少年时期，保罗就开始接触编程，对计算机的启蒙算比较早的，这个时期他就是“别人家的孩子”，兴趣广泛，喜欢读小说，喜欢编程。</p>
+<p>大学时期，他在康奈尔主修哲学，但是他发现哲学太难懂了，而且也比较枯燥，于是研究生阶段，他去了哈佛的计算机系主修人工智能，不得不说美国那个时候已经开设了人工智能专业，而我们国家这一两年才有一些学校开始设置机器学习、人工智能相关的专业，在哈佛学习人工智能好像也不是很顺利，保罗格雷厄姆开始对学术觉得有点累觉不爱了，于是有空他就经常去哈佛艺术系旁听艺术类的课程，当然我觉得这哥的主要目的是去看妹子的，毕竟艺术系的妹子质量……于是就这样他一边搞着人工智能，一边旁听艺术课程，完成了他的博士学位。</p>
+<p>拿到博士学位之后，他专门报了一个罗德岛设计学院的暑期班，学习绘画，然后感觉打开了人生新的大门，于是立志成为一名画家。暑期班结束之后，为了进一步深造，他去了欧洲这所有着500年历史的艺术名校佛罗伦萨艺术学院学习绘画。</p>
+<p>然而，现实总是很尴尬，在欧洲钱花完了，于是保罗格雷厄姆不得不回到美国，在波士顿的一家创业公司当一名程序员，来挣生活费，这段时间他的生活比较窘迫，租了一个小公寓，白天不得不去写代码，晚上才有时间画画，梦想的遥不可及与现实的窘迫，所以导致他内心比较挣扎。后来，有一天他顿悟了，觉得生存才是最重要的，他在一篇回忆的文章里写道：“我决定不当画家了，我要解决我的收入问题。”</p>
+<p>于是他找到他的一个朋友，莫里斯，这个朋友也是一个大神，第一个蠕虫病毒“莫里斯蠕虫”，就是这哥写的，他跟莫里斯说“老哥，我没钱花了，咱们一起想点路子，搞点钱花花可还行。”<br>那个时候是1995年左右，正赶上网景为了上市大肆宣传互联网的一些概念，什么互联网零售啊、网上购物啊到处宣传，保罗格雷厄姆就想，互联网这玩意儿要是真成了，那在网上卖东西，得有个网店啊，那为什么不开发一个网店生成软件呢。于是他跟莫里斯就决定开发一个网店生成器——viaWeb。</p>
+<p>也比较有意思，他们开发出viaWeb的demo之后，找到了保罗格雷厄姆之前学画画时候的美术老师，从这个老师的老公这里拿到了一万美金的天使投资。</p>
+<p>经过3年时间的发展，viaWeb最后以4900万美金，卖给了雅虎，也就是后来的Yahoo！Store，至此，作者想要搞点钱的目标算是超额实现了。</p>
+<p>保罗格雷厄姆也就顺理成章的成为了雅虎的员工，像很多大佬一样，他觉得大公司上班规矩太多、太束缚，没有freedom，于是辞职。</p>
+<p>辞职在家，人难免闲得蛋疼，他于是在网上写博客，写自己对创业就计算机的一些理解，很快捕获了大批粉丝，博客访问量蹭蹭蹭网上窜，后来o reilly就把其中最受读者欢迎的那些博客进行整理收录，于是有了《黑客与画家》这本书，销量也很不错，市场反响很好，也给作者带来了不少的名气。</p>
+<p>保罗格雷厄姆可谓是人生赢家，名利双收，一般名利双收的人就开始了演讲之路，作者开始受邀到一些大学做演讲。</p>
+<p>又一次在哈佛演讲完之后，跟那边的年轻人聊天，他发现那些年轻人都很有想法，但是没有资金，他仿佛看到了年轻自己……</p>
+<blockquote>
+<p>32岁的亨利就坐在那里，深情的目光望过去，满眼都是自己22岁的影子。——天下足球致敬亨利退役</p>
+</blockquote>
+<p>特别喜欢这段文案，那保罗格雷厄姆望着身边的那群年轻人，也满满都是自己以前的影子，于是他决定帮助他们。</p>
+<p>保罗格雷厄姆就办了一个夏令营，对一些创新的想法，进行指导与资助，发现效果还不错，不少项目都取得了相当不错的成绩，反正闲着也是闲着，为何不把这件事持续做下去呢？</p>
+<p>于是他又找到莫里斯老哥，两个人合伙办了一个创业孵化器——Y Combinator。</p>
+<p>Y Combinator帮助了很多年轻的硅谷公司，经过他们孵化之后的创业项目失败率不足20%，而业界创业的平均失败率是90%以上，因为很多的硅谷公司都受过保罗格雷厄姆的帮助，他也成为了硅谷的一个中心人物，被称为硅谷的创业之父，他的创业哲学是：</p>
+<blockquote>
+<p>1)搭建原型<br>2)上线运营（别管bug）<br>3)收集反馈<br>4)调整产品<br>5)成长壮大</p>
+</blockquote>
+<h2 id="黑客与画家"><a href="#黑客与画家" class="headerlink" title="黑客与画家"></a>黑客与画家</h2><p>“黑客与画家”是原书中的第二章，作者从黑客与画家之间的一些关系，进行了一些思考。</p>
+<p>黑客操作的是计算机，画家执行的是画画，计算机是一个机械的冰冷的世界，运行的是精确的结果，执行的是井然有序的程序，而画画是一种情感的表达，传递的是一种朦胧的，难以言状的信息，所谓是只能一会不可言传，那么这两个截然不同的世界，他们之间有什么联系吗？</p>
+<p>作者认为是有的，作者认为黑客与画家都是属于创作者，进行的都是创造性的工作，作者意识到这一点之后，如果我们想了解黑客的一些特点，是不是可以从画家去类比呢，因为黑客和画家本质都是创作者，他们之间肯定有很多类似点。<br><img src="https://user-images.githubusercontent.com/43005689/60349748-c5bbcd00-99f4-11e9-8565-07cb8fa1f4bb.JPG" alt=""></p>
+<p>作者以如何编程为切入点，对画画和编程之间进行了一个类比，比如我想思考黑客是怎么编程的，那么类比画家怎么是画画的是不是可以找到一些相似点呢？</p>
+<p>下面这幅图就把这些相似点进行了列举，右边表示画画的一些特征，类比到左边是一些编程的特征：<br><img src="https://user-images.githubusercontent.com/43005689/60349752-c7859080-99f4-11e9-98fc-ab66d906abe9.JPG" alt=""></p>
+<p>其中有两点我觉得还挺有启发的：<br>一个是对美的狂热追求，在一个优秀的画家眼里“一幅好的绘画作品要比它应该有的样子更完美”，这句话怎么理解呢，作者举了达芬奇的一个例子，达芬奇有一幅画叫《少女肖像》，画的主体是一个少女，背景是一丛树叶，少女的神态、表情、动作很传神，背景能烘托出少女的主体，在大众看来就已经是一幅优秀的作品了，但是当有人用很大倍数的放大镜对背景里的树叶进行放大，发现树叶的脉络、线条作者都进行了点缀，正常情况下没有人会用这么高倍数的放大镜看画的，没有人预期作为背景的树叶也要画的很仔细，但是达芬奇认为即使没有人会注意到这些背景的树叶，他也尽最大可能对这些树叶进行点缀，他自己对美有一份超出预期的执著。</p>
+<p>类比到编程，黑客同样需要保持这样一份执著，设计一款软件，除了功能、架构这种别人会关注的部分要做到尽可能完美之外，一个优秀的程序员，会去关注注释的合理性、代码的缩进排版、变量名是否合理……这些别人看不到的部分，这是作为一个优秀的程序员，作为一个优秀的黑客的执著。</p>
+<p>第二点是，一个真正的大师级的画家，经过时间的洗礼，他的作品会被世人认可，他的名声会被世人传颂，那类比到程序员，程序员也是创造者啊，程序员怎么样可以像画家一样流芳后世呢？作者没有给出明确的答案，我觉得作为一个程序员你要衡量你的工作是不是真的创造性的工作，还是像那种给人代画的画家一样只是一个简单的搬砖，写写if else，只有真正在创作的东西，才能经得住时间的考验与证明。</p>
+<h2 id="不能说的话"><a href="#不能说的话" class="headerlink" title="不能说的话"></a>不能说的话</h2><p>这一篇也很有趣，什么叫“不能说的话”？<br>作者以一个现象开头：如果你翻看自己十年前的老照片，会有什么感受？最后的结论多半是有点难为情，觉得十年前的自己怎么这样打扮、怎么留这种发型，怎么跟杀马特一样。。。</p>
+<p>那么为什么会有这种感受呢，十年前觉得很时尚的装扮，现在看来为什么那么格格不入呢？因为当时的时尚仅限于当时，到现在已经过时了。于是作者做了一个引申，流行一时的只有衣服吗？<strong>流行一时的，不仅是衣服，还有道德观念。</strong><br><img src="https://user-images.githubusercontent.com/43005689/60349768-ceac9e80-99f4-11e9-852a-17f8933d3c52.JPG" alt=""></p>
+<p>就比如哥白尼那个时代，所有的人都对地心说深信不疑，事实证明，他们是错的，同样在我们这个时代，一样存在着很多我们深信不疑的东西，最后会被时间证明原来这些我们深信不疑的东西压根就是错的……想想是不是有点可怕……这就是作者所谓的“不能说的话”，也就是跟大众公理相悖的真理！</p>
+<p>如果你想发觉这些“不能说的话”，首先你得是一个习惯独立思考的人，怎么判断自己是一个随大流的人，还是一个习惯独立思考的人呢？</p>
+<p>可以做这样一个假设：在大庭广众之下，你有没有什么观点是有所顾虑、不敢脱口而出的？</p>
+<p>如果没有，也就是所有的观点，你都能毫无顾虑的脱口而出，那很有可能你是一个随大流的人，因为这说明你认为你所有的观点都是主流观点，都会得到别人的认同，不会跟主流观点产生冲突。</p>
+<p>这有两个可能：</p>
+<ol>
+<li>你的所有观点都是从别人那里获取来的，所以你的观点才会跟主流观点保持高度一致；</li>
+<li>你的观点确实是经过你自己思考过的，碰巧跟主流观点保持了高度一致；</li>
+</ol>
+<p>第一种情况，毫无疑问你不是一个会独立思考的人，第二种情况呢？</p>
+<p>作者举了一个例子，古希腊的壁画家，为了防止别人抄袭自己的壁画，会在壁画里故意留一个错误，如果别人画的壁画跟他的壁画一样，而且连故意留的那个错误也错的一致，那基本就可以断定别人是抄袭了他的壁画。</p>
+<p>一样的，第二种情况里，主流观点里哪些观点是对的，你的哪些观点就是对的，主流观点里哪些是错的，你的哪些观点就是错的，这不跟壁画是一个道理吗，别人画了什么，你就画了什么，别人哪里画错了，你刚好也哪里画错了，那十有八九你就是抄的别人的观点，所以第二种情况也基本能说明，你的观点其实并不是你独立思考的结果，也是你抄的主流观点。</p>
+<p>那么结论是：如果有上面这种现象，大庭广众之下，你并没有什么观点是需要顾虑的，那注意了，你很可能是一个不会独立思考的人。</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/60349774-d2d8bc00-99f4-11e9-9940-7f8148e205c2.JPG" alt=""></p>
+<p>好，那假如你是一个习惯独立思考的人，有什么好的方法可以识别这种“不能说的话”吗？</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/60349781-d66c4300-99f4-11e9-8585-f1c3c46c6535.JPG" alt=""></p>
+<p>作者认为是有一些方法论的，这里列举了两条：<br><strong>途径一：时空差异</strong><br>如果我们有时光机可以穿越到未来，那很好办，我们可以往后穿越几十年，从未来的视角来看我们现在的一些主流观点，其中哪些观点被时间证明其实是错的，那这些观点就是作者所谓的“不能说的话”。</p>
+<p>可是我们没有时光机，我们不能穿越到未来，那怎么办呢？我们不能拥有未来视角，但是我们可以有历史视角，把现在的一些观点跟历史上的一些观点进行一个diff，那些有冲突的观点，注意了，从历史长河来看，我们并不比几十年前的甚至几百年前的人先进多少，也许科技会进步，但是我们的本质跟历史人们的本质相差无几，diff出有冲突的观点并不一定就是历史是错的，我们是对的。比如哥白尼时代认为地心说是对的，现在认为是日心说，这个diff是历史的观点是错的，那如果换个社会学的观点呢，比如在中国的历朝历代都认为“男二十，女十五”，古代的人们认为年轻人二十几岁就应该结婚，而现在呢，三十岁左右结婚才是主流观点，那么这个diff一定是古代人错了吗，现在的人是对的吗，当然有待商榷，所以当先出现diff的时候，可以更深入的思考一下，也许这是一个发现“不能说的话”很好的方法。</p>
+<p>除了跟古代的人做diff，也可以把自己所在国家所在民族的观点跟一些其他国家、其他民族的观点进行一个diff，大家都生活在21世纪，为什么外国人认为是这样，而我们认为又是另外一样，diff之后，也许就能有一些思考了……</p>
+<p><strong>途径二：道貌岸然与天真无邪</strong><br>这个其实也很好理解，道貌岸然的卫道者，经过社会的洗礼，他的思想，他的观点自认为是正确的，而小孩子他们思想单纯、天真无邪，让道貌岸然的卫道者跟小孩子做一个交流，如果卫道者讲了一些自认为正确的观点，而在小孩子这里觉得是不可思议、难以接受、难以想象的，卫道者可能需要思考一下了，卫道的这个道是否就是对的？</p>
+<p>为什么要识别这种不能说的话呢？跟主流保持一致不好吗，大家认为地心说，我也认为地心说，即使在未来被证明是错的，对我当前也没什么不好啊，相反我非要识别说地心说是错的，日心说才是对的，那不是给自己找麻烦吗？</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/60349789-d9673380-99f4-11e9-9382-044443b90b29.JPG" alt=""></p>
+<p>作者给出了三个原因：</p>
+<ol>
+<li>纯粹好奇。就跟小孩子明明知道前面有一块石头，他非要把石头掰过来看个究竟；</li>
+<li>不想出错。你愿意未来的人满脸嘲笑地说“21世纪的人这么愚蠢的吗，连这种观点都认为是对的。“</li>
+<li>脑力训练。一个优秀的创作者、一个优秀的程序员，是需要这种脑力训练的，他应该想一些别人不会思考的问题，而且这也有助于创作出好的作品，因为好的作品大多来自于被大众忽视的想法，而被大众所忽视的想法很多都来源于被禁锢的思想。</li>
+</ol>
+<h2 id="关注贫富分化"><a href="#关注贫富分化" class="headerlink" title="关注贫富分化"></a>关注贫富分化</h2><p>这一篇观点其实比较简单。</p>
+<p>如果我们身边有一个很厉害的画家，他卖的画是一些二流画家的很多倍，或者有一个人下棋很厉害，他跟别人下多少盘都很难输一盘，那我们会说这些人好厉害，真是天才，我们忍不住对他们的赞美。</p>
+<p>但是如果有一个人很会赚钱，一个月赚的钱别人一年都赚不来，在羡慕的同时，好像总会夹杂一些反面的声音，“有什么了不起的，还不知道他耍了什么手段呢？”，“这样不公平，贫富分化会越来越大的。”……</p>
+<p>那为什么呢，画画、下棋是一种能力，赚钱也是一种能力，前者能力卓越就要受到咱们，后者能力卓越却会有反面的声音？</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/60349805-dff5ab00-99f4-11e9-9d28-d8cf7d97daae.JPG" alt=""></p>
+<p>那是因为：</p>
+<p><strong>第一：说不公平的人，还处在一种老爹模式里面</strong><br>什么意思呢，就好像一个家庭有5个孩子，他们的零花钱都是老爹统一发放，如果一个小孩发多了，其他小孩就会觉得不公平。</p>
+<p>这就是一种老爹模式，认为财富是从一个统一的入口分配给大家，如果有人赚的钱都了，就角儿不公平，本质是因为没认识到财富分配的机制，财富是通过价值创造的，不是统一从老爹的口袋流出来的。</p>
+<p><strong>第二：历史上积累财富的名声大多不太好</strong><br>历史上很多富豪都是通过赌博、走私、抢劫偷窃……一些非正常手段进行发家的，所以导致大家对那些来钱特别快的人有一些偏见，会去质疑他们的手段。</p>
+<p>在现在这个时代，法律法规已经相当健全，通过偏门捞财的机会越来越少，持有上述观点的人，只是还没有矫正自己对财富的偏见而已。</p>
+<p><strong>第三：潜意识认为贫富分化是一种不好的现象</strong><br>两极分化会对社会发展造成不利的影响，这似乎是一种公理性的结论，然而事实真的是这样吗，两极分化真的是一种不正常的现象吗？存疑……</p>
+<p>作者认为，在一个民主的工业化国家，两极分化也许是一个健康的信号，对于掌握科技的人，和没有掌握科技的人，他们的收入确实会差距越来越大，因为科技在不断的发展，这种发展带来的生产率的改变会越来越明显，导致掌握科技的人和没有掌握科技的人他们的生产效率差距会越来越大，顺理成章，收入差距也会越来越大。</p>
+<h2 id="一百年后的编程语言"><a href="#一百年后的编程语言" class="headerlink" title="一百年后的编程语言"></a>一百年后的编程语言</h2><p>我们可能会想一百年后的生活变成了什么样？汽车会飞了？人克服死亡了？那有没有想过一百年后的编程语言是什么样子的？</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/60349819-e6842280-99f4-11e9-9827-13c1908fa84a.JPG" alt=""></p>
+<p>思考一百年的编程语言本来就是一个假设，一百年后的人类是否需要编程都需要打一个问号？也许一百年后人们只要跟电脑说一句话，电脑就能解决了，也许就不需要通过机器指令来控制电脑了。</p>
+<p>但是作者认为，从编程语言发展的历程，以及人工智能的现状来看，一百年后，人们还是需要对电脑发一些机器指令的，只不过很多现在需要编程解决的问题，在一百年之后可能不需要编程解决。</p>
+<p>基于这个假设，一百年后人们还是需要通过编程来控制计算机，那一百年后的编程语言会是什么样的呢？</p>
+<p>作者认为思考这个问题，有助于我们找到那些有生命力的语言。编程语言跟生物物种一样，存在进化的脉络，很多语言是通过一些旧语言进化来的，也有很多语言进化到了死胡同里面，被时代淘汰了，比如Cobol语言，第一个普及的高级编程语言，现在已经没有人在用了。</p>
+<p>那一个有生命力的语言会有哪些特征？</p>
+<p>作者认为一门编程语言可以分为两部分：基本运算符和其他。</p>
+<p>基本运算符就如同我们生活中的公理，决定着一门编程语言的命脉。在数学家看来公理是越少越好、越简洁越好。那编程语言的内核也是一样的，内核越小越简洁的语言生命力会更加顽强。</p>
+<p>现在的很多语言为了解决编程效率的问题，会往内核里加一些东西，比如很多语言都有字符串和列表两种基本类型，其实我们发现字符串就是列表的一个子集，每一个元素都是字符的列表就相当于构成了一个字符串，那为什么还要引入字符串呢，是为了解决效率的问题。</p>
+<p>作者认为如果单纯为了解决效率而往内核里放进很多冗余的东西，也许并不明智，就跟墙角的垃圾只会产生更多的垃圾一样，冗余的代码只会带来更多冗余的代码。</p>
+<p>引入字符串也许是一个过早优化的例子。</p>
+<p>思考一下，一个效率很低的语言遇上性能超强的硬件，会碰撞出什么样的火花？</p>
+<p>作者提醒我们，注意那些现在看来效率有点低的语言，他们也许会很有潜力，因为当前认为由于硬件制约导致的性能不足，在未来可能压根不是问题。</p>
+<h2 id="梦寐以求的编程语言"><a href="#梦寐以求的编程语言" class="headerlink" title="梦寐以求的编程语言"></a>梦寐以求的编程语言</h2><p>这一篇其实就是对上一篇进行了一个总结，对于一个黑客、梦幻般的编程语言是什么样子的：</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/60349836-ee43c700-99f4-11e9-9a5d-f98b6a02d6cd.JPG" alt=""></p>
+<h2 id="设计与研究"><a href="#设计与研究" class="headerlink" title="设计与研究"></a>设计与研究</h2><p>作者当时是在做开发一款新的编程语言的工作，当别人问他你是做什么工作的时候，他发现很难讲清楚，经常会导致别人的误解。于是他开始思考，他做的到底是一项什么性质的工作，是一项设计工作还是一项研究工作，他们之间又有什么样的差别？</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/60349850-f439a800-99f4-11e9-81ff-b6743a56d1ae.JPG" alt=""></p>
+<p>上面这张胶片，对设计和研究进行了一个总结。</p>
+<p>那么作者思考创造一种编程语言应该是一个设计问题，还是一个研究问题呢？</p>
+<p>作者得出的结论是——设计问题，因为他的出发点是创造一款更好的编程语言，而不是追求更新的编程语言。</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/60349861-f8fe5c00-99f4-11e9-8d73-5cc37228d97b.JPG" alt=""></p>
+<p>认识到这一点之后，对作者的主观思想有什么影响呢？</p>
+<p>作者认为当意识到自己从事的是一份设计工作之后，会更加的贴近用户。一个优秀的设计师，在开始设计之前最关心的是“为谁设计”，“对方的需求是什么”，所以设计工作会更多的从用户的视角考虑问题。</p>
+<p>还有一点就是，为了贴近用户，跟用户寸步不离，设计性质的工作会在demo出来之后第一时间跟客户展示沟通，通过客户的反馈进行修正，这里作者提了一个“弱即是强”模式，这个模式是1991年一个Lisp专家总结的：功能的增加不一定带来软件产品质量的提高，功能的减少不一定带来软件产品质量的下降。跟用户展示demo，这个时候demo的功能还很弱，但是你的想法是第一时间呈现的，客户也许对你的功能不满意，但是他会看重你要传达的idea，会向你反馈他的诉求，这样更有助于提高你产品的竞争力。</p>
+<p>而研究者一般推崇的是“万福玛丽亚”模式，什么意思呢，就是说他们会潜心钻研研究，然后等全部研究好了，再彻底推出他们的研究，就像圣母玛利亚一样突然降临，而不管之前的等待是多么漫长。</p>
+<p>最后作者以一句画家中间流行的谚语做了一个结尾，也算是对全文的主题进行了一个遥相呼应：</p>
+<blockquote>
+<p>画作永远没有完工的一天，你只是不再画下去了而已。</p>
+</blockquote>
+<p>编程也是第一样的，永远都有优化的空间，取决于你是不是想继续优化下去……</p>
+<p><img src="https://user-images.githubusercontent.com/43005689/60349876-fe5ba680-99f4-11e9-8344-a5e6d2145e8b.JPG" alt=""></p>
+<p>最后，是一个简单的个人体会：</p>
+<blockquote>
+<p>全文传达的一个主要观点是：编程是一种艺术。以一个创作者的身份来对待编程，以一个艺术的视角设计产品。</p>
+<p>就像乔布斯说的“科技要和人文、艺术联姻才能产生让我们为之歌唱的结果。”</p>
+<p>最后，时刻保持好奇心、习惯独立思考、学会质疑，是难能可贵的品质与精神。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/读书分享/" <i class="fa fa-tag"></i> 读书分享</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/24/深入学习知识图谱——第一篇-知识图谱概念综述/" rel="next" title="深入学习知识图谱——第一篇.知识图谱概念综述">
+                <i class="fa fa-chevron-left"></i> 深入学习知识图谱——第一篇.知识图谱概念综述
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1311145661&auto=0&height=66"></iframe>
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://user-images.githubusercontent.com/43005689/60348981-39f57100-99f3-11e9-9922-e84778473f05.JPG"
+                alt="e2Life" />
+            
+              <p class="site-author-name" itemprop="name">e2Life</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/e2life" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:e2life@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="/wechat.jpg" target="_blank" title="Wechat">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Wechat</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#其人其事"><span class="nav-number">1.</span> <span class="nav-text">其人其事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#黑客与画家"><span class="nav-number">2.</span> <span class="nav-text">黑客与画家</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不能说的话"><span class="nav-number">3.</span> <span class="nav-text">不能说的话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关注贫富分化"><span class="nav-number">4.</span> <span class="nav-text">关注贫富分化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一百年后的编程语言"><span class="nav-number">5.</span> <span class="nav-text">一百年后的编程语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梦寐以求的编程语言"><span class="nav-number">6.</span> <span class="nav-text">梦寐以求的编程语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计与研究"><span class="nav-number">7.</span> <span class="nav-text">设计与研究</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">e2Life</span>
+
+  
+</div>
+
+
+
+  <div class="powered-by"> <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv"> Visits:<span id="busuanzi_value_site_pv"></span> </span> </div>
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
